@@ -1,0 +1,129 @@
+/* General body styling */
+body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Sidebar styling */
+#sidebar {
+    width: 16%;
+    background-color: #2C3E50;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    position: fixed;
+}
+
+#sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar li {
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #34495E;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#sidebar li:hover {
+    background-color: #1ABC9C;
+}
+
+#sidebar li.active {
+    background-color: #16A085;
+}
+
+/* Content section styling */
+#content {
+    width: 80%;
+    padding: 20px;
+    margin-left: 20%; /* Adjusting for the sidebar width */
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Styling for individual pages */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form input,
+form button {
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #16A085;
+}
+
+form button {
+    background-color: #16A085;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1ABC9C;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #sidebar ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    #sidebar li {
+        flex-grow: 1;
+        text-align: center;
+        padding: 12px;
+    }
+}

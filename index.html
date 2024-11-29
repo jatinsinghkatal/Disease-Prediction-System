@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Multiple Disease Prediction System</h2>
+        <ul>
+            <li onclick="showPage('diabetes')">Diabetes Prediction</li>
+            <li onclick="showPage('heart')">Heart Disease Prediction</li>
+            <li onclick="showPage('parkinsons')">Parkinson's Prediction</li>
+        </ul>
+    </div>
+    <div id="content">
+        <!-- Diabetes Prediction -->
+        <div id="diabetes" class="page">
+            <h1>Diabetes Prediction</h1>
+            <form id="diabetes-form">
+                <label for="pregnancies">Number of Pregnancies:</label>
+                <input type="number" id="pregnancies" name="Pregnancies" placeholder="Enter number of pregnancies" required>
+                <br><br>
+            
+                <label for="glucose">Glucose Level:</label>
+                <input type="number" id="glucose" name="Glucose" placeholder="Enter glucose level" required>
+                <br><br>
+            
+                <label for="blood-pressure">Blood Pressure:</label>
+                <input type="number" id="blood-pressure" name="BloodPressure" placeholder="Enter blood pressure" required>
+                <br><br>
+            
+                <label for="skin-thickness">Skin Thickness:</label>
+                <input type="number" id="skin-thickness" name="SkinThickness" placeholder="Enter skin thickness" step="0.1">
+                <br><br>
+            
+                <label for="insulin">Insulin Level:</label>
+                <input type="number" id="insulin" name="Insulin" placeholder="Enter insulin level" step="0.1">
+                <br><br>
+            
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="BMI" placeholder="Enter BMI value" step="0.1" required>
+                <br><br>
+            
+                <label for="diabetes-pedigree-function">Diabetes Pedigree Function:</label>
+                <input type="number" id="diabetes-pedigree-function" name="DiabetesPedigreeFunction" placeholder="Enter diabetes pedigree function" step="0.01" required>
+                <br><br>
+            
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="Age" placeholder="Enter age" required>
+                <br><br>
+            
+                <button type="button" onclick="predict('diabetes')">Predict</button>
+            </form>
+            
+            <p id="diabetes-result"></p>
+        </div>
+
+        <!-- Heart Prediction -->
+
+        <div id="heart" class="page">
+            <h1>Heart Prediction</h1>
+            <form id="heart-form">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="Age" placeholder="Enter your age" required>
+                <br><br>
+            
+                <label for="sex">Sex:</label>
+                <select id="sex" name="Sex" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+                <br><br>
+            
+                <label for="cp">Chest Pain Types:</label>
+                <select id="cp" name="ChestPainTypes" required>
+                    <option value="0">Typical Angina</option>
+                    <option value="1">Atypical Angina</option>
+                    <option value="2">Non-Anginal Pain</option>
+                    <option value="3">Asymptomatic</option>
+                </select>
+                <br><br>
+            
+                <label for="trestbps">Resting Blood Pressure:</label>
+                <input type="number" id="trestbps" name="RestingBP" placeholder="Enter resting blood pressure (mmHg)" required>
+                <br><br>
+            
+                <label for="chol">Serum Cholesterol:</label>
+                <input type="number" id="chol" name="SerumCholesterol" placeholder="Cholesterol in mg/dL" required>
+                <br><br>
+            
+                <label for="fbs">Fasting Blood Sugar > 120 mg/dl:</label>
+                <select id="fbs" name="FastingBS" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <br><br>
+            
+                <label for="restecg">Resting Electrocardiographic Results:</label>
+                <select id="restecg" name="RestingECG" required>
+                    <option value="0">Normal</option>
+                    <option value="1">ST-T Wave Abnormality</option>
+                    <option value="2">Left Ventricular Hypertrophy</option>
+                </select>
+                <br><br>
+            
+                <label for="thalach">Maximum Heart Rate Achieved:</label>
+                <input type="number" id="thalach" name="MaxHeartRate" placeholder="Enter maximum heart rate" required>
+                <br><br>
+            
+                <label for="exang">Exercise Induced Angina:</label>
+                <select id="exang" name="ExerciseAngina" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <br><br>
+            
+                <label for="oldpeak">ST Depression Induced by Exercise:</label>
+                <input type="number" id="oldpeak" name="OldPeak" placeholder="Enter oldpeak value" step="0.1" required>
+                <br><br>
+            
+                <label for="slope">Slope of the Peak Exercise ST Segment:</label>
+                <select id="slope" name="Slope" required>
+                    <option value="0">Upsloping</option>
+                    <option value="1">Flat</option>
+                    <option value="2">Downsloping</option>
+                </select>
+                <br><br>
+            
+                <label for="ca">Number of Major Vessels (0-3) Colored by Flourosopy:</label>
+                <select id="ca" name="MajorVessels" required>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <br><br>
+            
+                <label for="thal">Thal:</label>
+                <select id="thal" name="Thal" required>
+                    <option value="0">Normal</option>
+                    <option value="1">Fixed Defect</option>
+                    <option value="2">Reversible Defect</option>
+                </select>
+                <br><br>
+            
+                <button type="button" onclick="predict('heart')">Predict</button>
+            </form>
+            
+            <p id="heart-result"></p>
+        </div>
+        
+        <!-- Parkinson's Prediction-->
+
+        <div id="parkinsons" class="page">
+            <h1>Parkinsons Prediction</h1>
+            <form id="parkinsons-form">
+                <label for="fo">MDVP:Fo (Hz):</label>
+                <input type="number" id="fo" name="Fo" placeholder="Enter MDVP:Fo (Hz)" step="0.1" required>
+                <br><br>
+            
+                <label for="fhi">MDVP:Fhi (Hz):</label>
+                <input type="number" id="fhi" name="Fhi" placeholder="Enter MDVP:Fhi (Hz)" step="0.1" required>
+                <br><br>
+            
+                <label for="flo">MDVP:Flo (Hz):</label>
+                <input type="number" id="flo" name="Flo" placeholder="Enter MDVP:Flo (Hz)" step="0.1" required>
+                <br><br>
+            
+                <label for="jitter-percent">MDVP:Jitter (%) :</label>
+                <input type="number" id="jitter-percent" name="JitterPercent" placeholder="Enter MDVP:Jitter (%)" step="0.1" required>
+                <br><br>
+            
+                <label for="jitter-abs">MDVP:Jitter (Abs):</label>
+                <input type="number" id="jitter-abs" name="JitterAbs" placeholder="Enter MDVP:Jitter (Abs)" step="0.1" required>
+                <br><br>
+            
+                <label for="rap">MDVP:RAP:</label>
+                <input type="number" id="rap" name="RAP" placeholder="Enter MDVP:RAP" step="0.1" required>
+                <br><br>
+            
+                <label for="ppq">MDVP:PPQ:</label>
+                <input type="number" id="ppq" name="PPQ" placeholder="Enter MDVP:PPQ" step="0.1" required>
+                <br><br>
+            
+                <label for="ddp">Jitter:DDP:</label>
+                <input type="number" id="ddp" name="DDP" placeholder="Enter Jitter:DDP" step="0.1" required>
+                <br><br>
+            
+                <label for="shimmer">MDVP:Shimmer:</label>
+                <input type="number" id="shimmer" name="Shimmer" placeholder="Enter MDVP:Shimmer" step="0.1" required>
+                <br><br>
+            
+                <label for="shimmer-db">MDVP:Shimmer(dB):</label>
+                <input type="number" id="shimmer-db" name="ShimmerdB" placeholder="Enter MDVP:Shimmer(dB)" step="0.1" required>
+                <br><br>
+            
+                <label for="apq3">Shimmer:APQ3:</label>
+                <input type="number" id="apq3" name="APQ3" placeholder="Enter Shimmer:APQ3" step="0.1" required>
+                <br><br>
+            
+                <label for="apq5">Shimmer:APQ5:</label>
+                <input type="number" id="apq5" name="APQ5" placeholder="Enter Shimmer:APQ5" step="0.1" required>
+                <br><br>
+            
+                <label for="apq">MDVP:APQ:</label>
+                <input type="number" id="apq" name="APQ" placeholder="Enter MDVP:APQ" step="0.1" required>
+                <br><br>
+            
+                <label for="dda">Shimmer:DDA:</label>
+                <input type="number" id="dda" name="DDA" placeholder="Enter Shimmer:DDA" step="0.1" required>
+                <br><br>
+            
+                <label for="nhr">NHR:</label>
+                <input type="number" id="nhr" name="NHR" placeholder="Enter NHR" step="0.1" required>
+                <br><br>
+            
+                <label for="hnr">HNR:</label>
+                <input type="number" id="hnr" name="HNR" placeholder="Enter HNR" step="0.1" required>
+                <br><br>
+            
+                <label for="rpde">RPDE:</label>
+                <input type="number" id="rpde" name="RPDE" placeholder="Enter RPDE" step="0.1" required>
+                <br><br>
+            
+                <label for="dfa">DFA:</label>
+                <input type="number" id="dfa" name="DFA" placeholder="Enter DFA" step="0.1" required>
+                <br><br>
+            
+                <label for="spread1">spread1:</label>
+                <input type="number" id="spread1" name="spread1" placeholder="Enter spread1" step="0.1" required>
+                <br><br>
+            
+                <label for="spread2">spread2:</label>
+                <input type="number" id="spread2" name="spread2" placeholder="Enter spread2" step="0.1" required>
+                <br><br>
+            
+                <label for="d2">D2:</label>
+                <input type="number" id="d2" name="D2" placeholder="Enter D2" step="0.1" required>
+                <br><br>
+            
+                <label for="ppe">PPE:</label>
+                <input type="number" id="ppe" name="PPE" placeholder="Enter PPE" step="0.1" required>
+                <br><br>
+            
+                <button type="button" onclick="predict('parkinsons')">Predict</button>
+            </form>            
+            <p id="parkinsons-result"></p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
